@@ -1,0 +1,167 @@
+<html>
+<head>
+<title> TIME TABLE </title>
+<style>
+    nav {
+        background-color: #333;
+        color: #fff;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    nav li {
+        margin: 0;
+        padding: 0;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #fff;
+        padding: 15px;
+        display: block;
+    }
+
+    nav a:hover {
+        background-color: #555;
+    }
+
+    nav .submenu ul {
+        display: none;
+        background-color: #333;
+    }
+
+    nav .submenu:hover ul {
+        display: block;
+    }
+
+    nav .submenu ul li {
+        margin: 0;
+        padding: 0;
+    }
+
+    nav .submenu ul li a {
+        padding: 10px 15px;
+    }
+    
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: flex-end; /* Align items to the right */
+    }
+    
+    nav li {
+        margin-right: 10px; /* Add some spacing between list items */
+    }
+    
+    #logout {
+        margin-left: auto; /* Push the "Logout" link to the right */
+    }
+    
+</style>
+</head>
+<body>
+
+
+<nav>
+    <ul>
+        <li><a href="staff.html">Home</a></li>
+        <li class="submenu">
+            <a href="#">Courses</a>
+            <ul>
+                <li><a href="coursestaff.html" >Course Management</a></li>
+                <li><a href="time table.html" >Time Table</a></li>
+            </ul>
+        </li>
+        <li><a href="grade.html">Grading</a></li>
+        <li><a href="attendancebystaff.html">Attendance</a></li>
+        <li><a href="leave.html">Leave Request</a></li>
+        <li id="logout"><a href="index.html">Logout</a></li>
+    </ul>
+</nav>
+
+
+<h1><font color="brown"><u><center>TIME TABLE</center></u></font></h1>
+<h3><font color="brown"><b><u><center>M.SC. INFORMATION TECHNOLOGY</center></b></u></font></h1>
+
+<table border="6px" height=80% width=90% align="center" bordercolor="green" style="border-collapse: collapse">
+
+
+<tr align="center">
+<th style="background-color: yellow" > DAYS/<br>HOURS </th>
+<th style="background-color: yellow">6</th>
+<th style="background-color: yellow">7 </th>
+<th style="background-color: yellow">8 </th>
+<th rowspan=7 style="background-color: yellow">BREAK</th>
+<th style="background-color: yellow">9</th>
+<th style="background-color: yellow">10</th>
+</tr >
+
+
+<tr align="center">
+<th style="background-color: yellow">Day 1</th>
+<td style="background-color: lightgreen">PE <br> (CC 2-9)</td>
+<td style="background-color: lightblue">DM14 <br> (CC 2-6) </td>
+<td style="background-color: lightyellow">SE14 <br> (CC 2-9)</td>
+<td style="background-color: lightgray">OC14 Pr <br> (F LAB) </td>
+<td style="background-color: lightpink">PP14Pr <br> (F LAB) </td>
+</tr>
+
+
+<tr align="center">
+<th style="background-color: yellow">Day 2</th>
+<td style="background-color: lightpink">PP14 <br> (CC 3-1) </td>
+<td style="background-color: lightgreen">PE Pr <br> (F LAB) </td>
+<td style="background-color: orange">SAP <br> (F LAB) </td>
+<td style="background-color: lightgray">OC14 <br> (CC 2-9) </td>
+<td style="background-color: lightblue">DM14 <br> (CC 2-6) </td>
+</tr>
+
+<tr align="center">
+<th style="background-color: yellow">Day 3</th>
+<td style="background-color: lightblue">DM14 <br> (CC 2-6) </td>
+<td style="background-color: lightgreen">PE Pr <br> (F LAB) </td>
+<td style="background-color: lightpink">PP14 Pr <br> (F LAB) </td>
+<td style="background-color: lightgray">OC14 Pr <br> (F LAB) </td>
+<td style="background-color: lightyellow">SE14 <br> (CC 1-3) </td>
+</tr>
+
+<tr align="center">
+<th style="background-color: yellow">Day 4</th>
+<td style="background-color: lightgray">OC14 Pr <br> (F LAB)  </td>
+<td style="background-color: lightpink">PP14 <br> (F LAB) </td>
+<td style="background-color: orange">SAP <br> (CC 2-9) </td>
+<td style="background-color: lightyellow">SE14 <br> (CC 1-3)</td>
+<td style="background-color: lightgreen">PE Pr <br> (F LAB) </td>
+</tr>
+
+
+<tr align="center">
+<th style="background-color: yellow">Day 5</th>
+<td style="background-color: lightyellow">SE14 <br> (CC 2-9) </td>
+<td style="background-color: lightblue">DM14 <br> (CC 2-6) </td>
+<td style="background-color: lightgray">OC14 Pr <br> (F LAB) </td>
+<td style="background-color: lightgreen">PE <br> (CC 3-2) </td>
+<td style="background-color: lightpink">PP14 <br> (CC 2-9) </td>
+</tr>
+
+
+<tr align="center">
+<th style="background-color: yellow">Day 6</th>
+<td style="background-color: lightgreen">PE <br> (CC 1-3)</td>
+<td style="background-color: lightpink">PP14 Pr <br> (F LAB) </td>
+<td style="background-color: lightyellow">SE14 <br> (CC 1-3) </td>
+<td style="background-color: lightblue">DM14 <br> (CC 2-6)</td>
+<td style="background-color: lightgray">OC14  <br> (CC 3-5) </td>
+</tr>
+
+
+</table>
+</body>
+</html>
