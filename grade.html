@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url('smc.jpg'); /* Add your background image URL */
+            background-size: cover; /* Adjust the background image size */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            opacity: 0.9; /* Add the desired opacity value */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 350px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8); /* Add a background color with opacity */
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+        }
+
+        .absent-checkbox {
+            display: flex;
+            align-items: center;
+        }
+
+        .absent-checkbox label {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+
+        .pass-list,
+        .fail-list,
+        .absent-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .pass-list li,
+        .fail-list li,
+        .absent-list li {
+            margin-bottom: 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+
+        .pass-list li.pass {
+            background-color: #d9f3d9;
+        }
+
+        .fail-list li.fail {
+            background-color: #ffc4c4;
+        }
+
+        .absent-list li.absent {
+            background-color: #ffeb99;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+
+        
+
+        nav {
+            background-color: #333;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 15px;
+            display: block;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        nav .submenu ul {
+            display: none;
+            background-color: #333;
+        }
+
+        nav .submenu:hover ul {
+            display: block;
+        }
+
+        nav .submenu ul li {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav .submenu ul li a {
+            padding: 10px 15px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end; /* Align items to the right */
+        }
+        
+        nav li {
+            margin-right: 10px; /* Add some spacing between list items */
+        }
+        
+        #logout {
+            margin-left: auto; /* Push the "Logout" link to the right */
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <ul>
+            <li><a href="staff.html">Home</a></li>
+            <li class="submenu">
+                <a href="#">Courses</a>
+                <ul>
+                    <li><a href="coursestaff.html" >Course Management</a></li>
+                    <li><a href="time table.html" >Time Table</a></li>
+                </ul>
+            </li>
+            <li><a href="grade.html">Grading</a></li>
+            <li><a href="attendancebystaff.html">Attendance</a></li>
+            <li><a href="leave.html">Leave Request</a></li>
+            <li id="logout"><a href="index.html">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1>Marks Updation</h1>
+        <form id="marksForm">
+            <label for="registerNumber">Register Number (e.g., 23/pcsa/110):</label>
+            <input type="text" id="registerNumber" pattern="\d{2}/[a-z]+/\d{3}" required>
+
+            <label for="marks">Marks (0-100):</label>
+            <input type="number" id="marks" min="0" max="100" required>
+
+            <div class="absent-checkbox">
+                <label for="absent">Absent:</label>
+                <input type="checkbox" id="absent">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="result">
+            <h2>Pass Students:</h2>
+            <ul class="pass-list" id="passList"></ul>
+
+            <h2>Fail Students:</h2>
+            <ul class="fail-list" id="failList"></ul>
+
+            <h2>Absent Students:</h2>
+            <ul class="absent-list" id="absentList"></ul>
+        </div>
+    </div>
+
+    <script>
+        const marksForm = document.getElementById("marksForm");
+        const passList = document.getElementById("passList");
+        const failList = document.getElementById("failList");
+        const absentList = document.getElementById("absentList");
+
+        marksForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            
+            const registerNumber = document.getElementById("registerNumber").value;
+            const marks = parseFloat(document.getElementById("marks").value);
+            const absent = document.getElementById("absent").checked;
+
+            const registerNumberPattern = /^\d{2}\/[a-z]+\/\d{3}$/;
+            if (!registerNumberPattern.test(registerNumber)) {
+                alert("Invalid Register Number format. Please use the format '23/pcsa/110'.");
+                return;
+            }
+
+            const listItem = document.createElement("li");
+            listItem.textContent = `Register Number: ${registerNumber}, Marks: ${marks}`;
+            
+            if (absent) {
+                listItem.classList.add("absent");
+                absentList.appendChild(listItem);
+            } else if (marks >= 40) {
+                listItem.classList.add("pass");
+                passList.appendChild(listItem);
+            } else {
+                listItem.classList.add("fail");
+                failList.appendChild(listItem);
+            }
+
+            marksForm.reset();
+        });
+    </script>
+</body>
+</html>

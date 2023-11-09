@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration</title>
+    <link rel="stylesheet" href="coursestyle.css">
+
+    <style>
+        .course-list {
+            width: 100%;
+        }
+
+        .course-list th, .course-list td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        #registration-details {
+            display: none;
+        }
+
+        #message {
+            color: red;
+            font-weight: bold;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 15px;
+            display: block;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        nav .submenu ul {
+            display: none;
+            background-color: #333;
+        }
+
+        nav .submenu:hover ul {
+            display: block;
+        }
+
+        nav .submenu ul li {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav .submenu ul li a {
+            padding: 10px 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end; /* Align items to the right */
+        }
+        
+        nav li {
+            margin-right: 10px; /* Add some spacing between list items */
+        }
+        
+        #logout {
+            margin-left: auto; /* Push the "Logout" link to the right */
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Course Registration</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="stu.html">Home</a></li>
+            <li class="submenu">
+                <a href="#">Courses</a>
+                <ul>
+                    
+                    <li><a href="stu_course.html" target="_blank">Course Registration</a></li>
+                </ul>
+            </li>
+            <li><a href="marks.html">Grades</a></li>
+            <li class="submenu">
+                <a href="attendance.html">Attendance</a>
+                
+            </li>
+            <li><a href="leavestu.html">Leave Request</a></li>
+            <li id="logout"><a href="index.html">Logout</a></li>
+        </ul>
+    </nav>
+    <p id="message"></p>
+    <table class="course-list">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Subject Code</th>
+                <th>Subject Name</th>
+                <th>Slot Name</th>
+                <th>Department</th>
+                <th>Credits</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            		
+			<tr>
+                <td>1</td>
+                <td>23PY/PE/PE23</td>
+                <td>PERSONAL EFFECTIVENESS</td>
+                <td>None</td>
+                <td>PSYCHOLOGY</td>
+                <td>8</td>
+                <td><button onclick="selectCourse('23PY/PE/PE23', 'PERSONAL EFFECTIVENESS', 100)">Select</button></td>
+            </tr>
+			
+			<tr>
+                <td>2</td>
+                 <td>23BI/PE/CD23</td>
+                 <td>COMPUTER AIDED DRUG DESIGN</td>
+                 <td>None</td>
+                 <td>BIOINFORMATICS</td>
+                 <td>5</td>
+                 <td><button onclick="selectCourse('23BI/PE/CD23', 'COMPUTER AIDED DRUG DESIGN', 150)">Select</button></td>
+            </tr>
+			
+			<tr>
+                    <td>3</td>
+                    <td>23BY/PE/AB23</td>
+                    <td>APPLICATIONS OF BIOTECHNOLOGY</td>
+                    <td>None</td>
+                    <td>BIOTECHNOLOGY</td>
+                    <td>10</td>
+					<td><button onclick="selectCourse('23BY/PE/AB23', 'APPLICATIONS OF BIOTECHNOLOGY', 120)">Select</button></td>
+                   
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>23CM/PE/HR23</td>
+                    <td>HUMAN RESOURCE MANAGEMENT</td>
+                    <td>None</td>
+                    <td>COMMERCE</td>
+                    <td>7</td>
+					<td><button onclick="selectCourse('23CM/PE/HR23', 'HUMAN RESOURCE MANAGEMENT', 150)">Select</button></td>
+                    
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>23IS/PE/SC23</td>
+                    <td>POLITICS, SOCIETY AND CINEMA</td>
+                    <td>None</td>
+                    <td>INTERNATIONAL STUDIES</td>
+                    <td>9</td>
+					<td><button onclick="selectCourse('23IS/PE/SC23', 'POLITICS, SOCIETY AND CINEMA', 200)">Select</button></td>
+                    
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>23PR/PE/PS23</td>
+                    <td>PUBLIC RELATIONS SKILLS</td>
+                    <td>None</td>
+                    <td>PUBLIC RELATIONS</td>
+                    <td>11</td>
+					<td><button onclick="selectCourse('23PR/PE/PS23', 'PUBLIC RELATIONS SKILLS', 100)">Select</button></td>
+                   
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>23CH/PE/FN23</td>
+                    <td>FOOD CHEMISTRY AND NUTRITION</td>
+                    <td>None</td>
+                    <td>CHEMISTRY</td>
+                    <td>9</td>
+					<td><button onclick="selectCourse('23CH/PE/FN23', 'FOOD CHEMISTRY AND NUTRITION', 150)">Select</button></td>
+                   
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>23PH/PE/EI23</td>
+                    <td>ELECTRICAL INSTALLATIONS</td>
+                    <td>None</td>
+                    <td>PHYSICS	</td>
+                    <td>8</td>
+					<td><button onclick="selectCourse('23PH/PE/EI23', 'ELECTRICAL INSTALLATIONS', 300)">Select</button></td>
+                    
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>23HR/PE/MD23</td>
+                    <td>MANAGEMENT OF DEVELOPMENT ORGANISATIONS</td>
+                    <td>None</td>
+                    <td>HUMAN RESOURCE MANAGEMENT</td>
+                    <td>13</td>
+					<td><button onclick="selectCourse('23HR/PE/MD23', 'MANAGEMENT OF DEVELOPMENT ORGANISATIONS', 150)">Select</button></td>
+                    
+                </tr>
+            <!-- Add more course rows as needed -->
+        </tbody>
+    </table>
+
+    <div id="registration-details">
+        <h3>Selected Course Details</h3>
+        <p>Course Code: <span id="selected-course-code"></span></p>
+        <p>Course Name: <span id="selected-course-name"></span></p>
+        <p>Registration Fee: $<span id="registration-fee"></span></p>
+        <button onclick="submitRegistration()">Submit</button>
+        <button onclick="resetRegistration()">Reset</button>
+    </div>
+
+    <script>
+        var selectedCourse = null;
+
+        function selectCourse(courseCode, courseName, fee) {
+            if (selectedCourse === null) {
+                selectedCourse = courseCode;
+                var message = document.getElementById('message');
+                message.textContent = "You have selected a course.";
+                message.style.color = "green";
+                var selectedCourseCode = document.getElementById('selected-course-code');
+                var selectedCourseName = document.getElementById('selected-course-name');
+                var registrationFee = document.getElementById('registration-fee');
+                var registrationDetails = document.getElementById('registration-details');
+
+                selectedCourseCode.textContent = courseCode;
+                selectedCourseName.textContent = courseName;
+                registrationFee.textContent = fee;
+                registrationDetails.style.display = 'block';
+            } else {
+                var message = document.getElementById('message');
+                message.textContent = "You can only register for one course.";
+                message.style.color = "red";
+            }
+        }
+
+        function submitRegistration() {
+            if (selectedCourse !== null) {
+                var registrationFee = document.getElementById('registration-fee').textContent;
+                alert('Registration Fee: $' + registrationFee);
+                // Add code here to redirect the user to the payment page or any other action.
+                window.location.href = "payment-page.html"; // Change the URL to your payment page.
+            }
+        }
+
+        function resetRegistration() {
+            selectedCourse = null;
+            var message = document.getElementById('message');
+            var registrationDetails = document.getElementById('registration-details');
+            message.textContent = "";
+            registrationDetails.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

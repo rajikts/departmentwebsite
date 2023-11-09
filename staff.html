@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 15px;
+            display: block;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        nav .submenu ul {
+            display: none;
+            background-color: #333;
+        }
+
+        nav .submenu:hover ul {
+            display: block;
+        }
+
+        nav .submenu ul li {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav .submenu ul li a {
+            padding: 10px 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex; /* Use flex to arrange content horizontally */
+            justify-content: space-between; /* Add space between content and image */
+        }
+
+        .content {
+            flex: 1; /* Expand content to take available space */
+        }
+
+        .image-container {
+            flex: 0; /* Image container doesn't flex */
+            position: relative; /* Enable positioning */
+            text-align: right; /* Align image to the right */
+        }
+
+        .staff-image {
+            max-width: 100%; /* Adjust the image size as needed */
+            height: auto;
+            display: block; /* Remove extra spacing underneath the image */
+            position: absolute; /* Position the image absolutely */
+            top: 0; /* Position at the top */
+            right: 0; /* Position at the right */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end; /* Align items to the right */
+        }
+        
+        nav li {
+            margin-right: 10px; /* Add some spacing between list items */
+        }
+        
+        #logout {
+            margin-left: auto; /* Push the "Logout" link to the right */
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Staff Portal</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li class="submenu">
+                <a href="#">Courses</a>
+                <ul>
+                    <li><a href="coursestaff.html" >Course Management</a></li>
+                    <li><a href="time table.html" >Time Table</a></li>
+                </ul>
+            </li>
+            <li><a href="grade.html">Grading</a></li>
+            <li><a href="attendancebystaff.html">Attendance</a></li>
+            <li><a href="leave.html">Leave Request</a></li>
+            <li id="logout"><a href="index.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <h2>Dates and Upcoming Events</h2>
+            <ul>
+                <li><strong>November 25, 2023:</strong> Staff Meeting</li>
+                <li><strong>December 5, 2023:</strong> Training Session</li>
+                <li><strong>December 20, 2023:</strong> Department Seminar</li>
+            </ul>
+
+            <h2>Important Dates and Events</h2>
+            <ul>
+                <li>
+                    <strong>Event Date: November 25, 2023</strong><br>
+                    <strong>Event: Faculty Meeting</strong><br>
+                    <strong>Details:</strong>
+                    <ul>
+                        <li>Time: 2:00 PM - 4:00 PM</li>
+                        <li>Location: Conference Room A, Building 123</li>
+                        <li>Agenda: Discuss upcoming curriculum changes and department updates.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Event Date: December 10, 2023</strong><br>
+                    <strong>Event: Professional Development Workshop</strong><br>
+                    <strong>Details:</strong>
+                    <ul>
+                        <li>Time: 9:00 AM - 12:00 PM</li>
+                        <li>Location: Training Room B, Building 456</li>
+                        <li>Agenda:</li>
+                        <ul>
+                            <li>Latest teaching methodologies</li>
+                            <li>Technology integration in education</li>
+                            <li>Effective classroom management strategies</li>
+                        </ul>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Reminders for Staff</h2>
+            <ul>
+                <li><strong>December 30, 2023:</strong> Deadline for Course Submissions</li>
+                <li><strong>December 10, 2023:</strong> Grading Period Begins</li>
+                <li><strong>December 18, 2023:</strong> Submit Progress Reports</li>
+            </ul>
+        </div>
+
+        <div class="image-container">
+            <!-- Add an image of staff here -->
+            <img src="staff.jpg" alt="Staff Photo" class="staff-image">
+        </div>
+    </div>
+</body>
+</html>

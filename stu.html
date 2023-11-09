@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 15px;
+            display: block;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        nav .submenu ul {
+            display: none;
+            background-color: #333;
+        }
+
+        nav .submenu:hover ul {
+            display: block;
+        }
+
+        nav .submenu ul li {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav .submenu ul li a {
+            padding: 10px 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end; /* Align items to the right */
+        }
+        
+        nav li {
+            margin-right: 10px; /* Add some spacing between list items */
+        }
+        
+        #logout {
+            margin-left: auto; /* Push the "Logout" link to the right */
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Student Portal</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="stu.html">Home</a></li>
+            <li class="submenu">
+                <a href="#">Courses</a>
+                <ul>
+                    
+                    <li><a href="stu_course.html" target="_blank">Course Registration</a></li>
+                </ul>
+            </li>
+            <li><a href="marks.html">Grades</a></li>
+            <li class="submenu">
+                <a href="attendance.html">Attendance</a>
+                
+            </li>
+            <li><a href="leavestu.html">Leave Request</a></li>
+            
+            <li id="logout"><a href="index.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        
+        <h2>Dates and Upcoming Events</h2>
+        <ul>
+            <li><strong>November 25, 2023:</strong> Midterm Exams</li>
+            <li><strong>December 5, 2023:</strong> Career Fair</li>
+            <li><strong>December 20, 2023:</strong> Club Meeting</li>
+        </ul>
+
+        <h2>Exams Important Dates and Reminder</h2>
+        <ul>
+            <li><strong>November 30, 2023:</strong> Review Session for Midterms</li>
+            <li><strong>December 10, 2023:</strong> Final Exam Study Group Meeting</li>
+            <li><strong>December 18, 2023:</strong> Submit Final Projects</li>
+        </ul>
+    </div>
+</body>
+</html>

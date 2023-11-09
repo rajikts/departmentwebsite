@@ -1,0 +1,166 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.overall{
+    width: 100%;
+}
+.header
+{
+    width: 40%;
+}
+.top-head
+{
+    display: flex;
+    justify-content: center;
+}
+.top-head h1{
+    font-size: 50px;
+    text-shadow: 0px 2px 4px black;
+}
+.container
+{
+    margin-top: 100px;
+}
+.header h1
+{
+    margin-top: 50px;
+    margin-left: 250px;
+    margin-right: 200px;
+    padding: 30px 0;
+    border-bottom: 3px solid red;
+    display: flex;
+    justify-content: center;
+}
+.header p
+{
+    font-size: 20px;
+    margin-top: 50px;
+    margin-left: 150px;
+    margin-right: 100px;
+    padding: 50px 40px;
+    border-left: 3px solid red;
+    display: flex;
+    justify-content: center;
+}
+.con
+{
+    margin-top: -350px;
+    width: 70%;
+    position: relative;
+    float: right;
+    margin-right: -300px;
+    
+}
+
+.header-1 h1
+{
+    margin-top: 170px;
+    margin-left: 1200px;
+    margin-right: 200px;
+    padding: 30px 0;
+    border-bottom: 3px solid red;
+    display: flex;
+    justify-content: center;
+}
+.header-1 p
+{
+    font-size: 20px;
+    margin-top: 50px;
+    margin-left: 1000px;
+    margin-right: 100px;
+    padding: 50px 40px;
+    border-left: 3px solid red;
+    display: flex;
+    justify-content: center;
+}
+.con-1
+{
+    margin-top: 100px;
+    width: 70%;
+    position: relative;
+    float: left;
+    margin-left: 100px;
+    
+    
+}
+.content{
+    background-image: url(mile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60%;
+    height: 400px;
+}
+.content-1{
+    background-image: url(mile1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60%;
+    height: 400px;
+}
+
+
+.content-2{
+    background-image: url(mile2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60%;
+    height: 400px;
+}
+.content-3{
+    background-image: url(mile3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60%;
+    height: 400px;
+}
+.content-4{
+    background-image: url(mile4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60%;
+    height: 400px;
+}
+.content-5{
+    background-image: url(mile5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60%;
+    height: 400px;
+}
+.content-6{
+    background-image: url(mile7.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60%;
+    height: 400px;
+}
+.content-7{
+    background-image: url(mile8.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60%;
+    height: 400px;
+}
+.content-8{
+    background-image: url(mile9.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60%;
+    height: 400px;
+}
+.content-9{
+    background-image: url(mile10.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60%;
+    height: 400px;
+}
+.content-10{
+    background-image: url(mile11.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60%;
+    height: 400px;
+}

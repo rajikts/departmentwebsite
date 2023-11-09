@@ -1,0 +1,329 @@
+<html>
+<head> 
+	<meta name="viewport" content="with=device-width, initial-scale=1.0">
+	<title>Computer Science Department - SMC </title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  background-color: #FFA2B8;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  width: 75%;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.content {
+  display: none;
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-top: 10px;
+  
+  
+}
+
+.button.active + .content {
+  display: block;
+}
+
+ nav {
+        background-color: #333;
+        color: #fff;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    nav li {
+        margin: 0;
+        padding: 0;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #fff;
+        padding: 15px;
+        display: block;
+    }
+
+    nav a:hover {
+        background-color: #555;
+    }
+
+    nav .submenu ul {
+        display: none;
+        background-color: #333;
+    }
+
+    nav .submenu:hover ul {
+        display: block;
+    }
+
+    nav .submenu ul li {
+        margin: 0;
+        padding: 0;
+    }
+
+    nav .submenu ul li a {
+        padding: 10px 15px;
+    }
+
+	nav ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		justify-content: flex-end; /* Align items to the right */
+	}
+	
+	nav li {
+		margin-right: 10px; /* Add some spacing between list items */
+	}
+	
+	#logout {
+		margin-left: auto; /* Push the "Logout" link to the right */
+	}
+	
+    
+</style>
+</head>
+<body>
+
+
+<nav>
+    <ul>
+        <li><a href="staff.html">Home</a></li>
+        <li class="submenu">
+            <a href="#">Courses</a>
+            <ul>
+                <li><a href="coursestaff.html" >Course Management</a></li>
+                <li><a href="time table.html" >Time Table</a></li>
+            </ul>
+        </li>
+        <li><a href="grade.html">Grading</a></li>
+        <li><a href="attendancebystaff.html">Attendance</a></li>
+        <li><a href="leave.html">Leave Request</a></li>
+        <li id="logout"><a href="index.html">Logout</a></li>
+    </ul>
+</nav>
+
+
+
+
+<!-- Courses-->
+
+<section class="course">
+	
+	<div class="row">
+		<div class="course-col">
+			<h3>Bachelor of Computer Applications - B.C.A</h3>
+			<p>The Bachelor of Computer Applications offers knowledge on the underlying concepts of computer technology, use of different programming languages as a tool for solving problems in different domains and the technology trends. This degree not only helps the students to pursue career in IT industry or master’s programme in the discipline but also opens up their avenues in different domains of their interest as Computer technology plays a vital role in almost all disciplines. </p>
+		</div>
+		<div class="course-col">
+			<h3>M.Sc. Information Technology</h3>
+			<p>Master of Science in Information Technology offers knowledge on the underlying concepts of computer technology, use of different programming languages as a tool for solving problems in different domains and the technology trends. This degree not only helps the students pursue career in IT industry or higher education in the discipline but also opens up avenues in different domains of their interest as computer technology plays a vital role in almost all disciplines. </p>
+		</div>
+		<div class="course-col">
+			<h3>Post Graduate Diploma in Computer Science - PGDCS </h3>
+			<p>The Postgraduate Diploma in Computer Science offers knowledge on the concepts of computer technology and use of various programming languages as tools for designing and solving problems. This degree not only helps the students to pursue career in the IT industry or master’s programme in the discipline but also opens up avenues in different domains of their interest as computer technology plays a vital role in almost all disciplines. </p>
+		</div>
+	</div>
+	
+</section>
+
+
+<!----- SYLLABUS ------>
+
+<div class="container">
+  <button class="button" onclick="toggleContent(this)">Bachelor of Computer Applications - B.C.A</button>
+  <div class="content">	
+	<h3>Major Core Courses</h3>
+    <ul>
+      <li>Fundamentals of Computing</li>
+      <li>Digital Logic Fundamentals</li>
+      <li>Procedure Oriented Programming</li>
+	  <li>Algorithms and Data Structures </li>
+	  <li>Creative Web Designing </li>
+	  <li>Essentials of Object Oriented Programming </li>
+	  <li>Software Engineering and Testing </li>
+	  <li>Creative Web Designing Practical </li>
+	  <li>Object Oriented Programming Practical </li>
+	  <li>Operating Systems </li>
+	  <li>Fundamentals of Database Management Systems </li>
+	  <li>Operating System Concepts Implementation </li>
+	  <li>Database Management Systems Practical </li>
+	  <li>Computer Networks </li>
+	  <li>Data Science </li>
+	  <li>Functional Web Development </li>
+	  <li>Data Science Practical </li>
+	  <li>Critical Analysis on an Advanced Technology </li>
+	  <li>Security Concepts </li>
+	  <li>Cloud Computing </li>
+	  <li>Project </li>
+	 </ul>
+	 
+	<h3>Allied Core Courses</h3>
+    <ul>	 
+	  <li>Mathematics for Computer Science – I & II </li>
+	  <li>Entrepreneurship – New Venture Creation </li>
+	  <li>Accounting for Business </li>
+	</ul>
+	
+	<h3>Major Elective Courses </h3>
+    <ul>	 
+	  <li>Advanced Java Programming </li>
+	  <li>Visual Programming </li>
+	  <li>Game Programming </li>
+	  <li>Intelligent Systems </li>
+	  <li>Internet of Things </li>
+	  <li>Algorithm Design Techniques </li>
+	  <li>Mobile App Development for Android </li>
+    </ul>
+	
+	<h3>Inter Disciplinary Core Course </h3>
+    <ul>	 
+	  <li>Human Computer Interaction </li>
+	</ul>
+	
+	<h3>Independent Elective Courses</h3>
+    <ul>	 
+	  <li>Computer Graphics </li>
+	  <li>Computer Vision </li>	  
+    </ul>
+	<button style="background-color: #FF5B87;" class="button" onclick="window.open('bca.pdf')">SYLLABUS (BCA)</button>
+  </div>
+
+  <button class="button" onclick="toggleContent(this)">M.Sc. Information Technology</button>
+  <div class="content">  
+    <h3>Core Courses </h3>
+    <ul>	 
+	  <li>Programming with Python </li>
+	  <li>Discrete Mathematics for Computer Science </li>
+	  <li>Software Engineering </li>
+	  <li>Operating Systems—Concepts and Applications </li>
+	  <li>Database Management Systems </li>
+	  <li>Design and Analysis of Algorithms </li>
+	  <li>Object Oriented Programming </li>
+	  <li>Network Management and Administration </li>
+	  <li>Research Methodology </li>
+	  <li>Data Analytics </li>
+	  <li>Artificial Intelligence </li>
+	  <li>Formal Languages and Finite Automata </li>
+	  <li>Cloud Computing—Theory and Practice </li>
+	  <li>Dissertation </li>	  
+    </ul>
+	
+	<h3>Elective Courses Offered to Parent Department </h3>
+    <ul>	 
+	  <li>UI, UX and Design Thinking </li>
+	  <li>Cyber Security </li>
+	  <li>Software Testing </li>
+	  <li>Mobile Computing </li>
+	  <li>Advanced Technologies </li>
+	  <li>Visual Programming </li>
+	  <li>Advanced Database Systems </li>
+    </ul>
+	
+	<h3>Elective Courses Offered to Other Departments </h3>
+    <ul>	 
+	  <li>Documentation and Presentation</li>
+	  <li>Emerging Trends in Information Technology</li>
+	  <li>Multimedia</li>
+	  <li>E-Commerce and Content Management Systems </li>
+	</ul>
+	
+	<h3>Independent Elective Courses </h3>
+    <ul>	 
+	  <li>Advanced Computer Graphics </li>
+	  <li>Digital Image Processing </li>	  
+    </ul>
+	<button style="background-color: #FF5B87;" class="button" onclick="window.open('it.pdf')">SYLLABUS (IT)</button>
+  </div>
+
+  <button class="button" onclick="toggleContent(this)">Post Graduate Diploma in Computer Science - PGDCS</button>
+  <div class="content">    
+    <ul>	 
+	  <li>Programming with PythonC </li>
+	  <li>Operating Systems: Concepts and Applications </li>
+	  <li>Software Engineering </li>
+	  <li>Research Methodology </li>
+	  <li>Data Analytics </li>
+	  <li>Design Thinking </li>
+	  <li>Object Oriented Programming </li>
+	  <li>Cloud Computing: Theory and Practice </li>
+	  <li>Database Management Systems </li>
+	  <li>Critical Analysis on an Advanced Technology </li>
+	  <li>Dissertation </li>	  
+    </ul>
+	<button style="background-color: #FF5B87;" class="button" onclick="window.open('pgdcs.pdf')">SYLLABUS (PGDCS)</button>
+	
+  </div>
+</div>
+
+
+<script>
+function toggleContent(button) {
+  button.classList.toggle("active");
+}
+</script>
+
+
+
+
+<!-- Footer-->
+<section class="footer">
+	<h3>About Us </h3>
+	<p>The undergraduate programme in Computer Applications (B.C.A.) was started in 1998 and the postgraduate programm - M.Sc. Information Technology in 2001.<br> The Department also offers a Postgraduate Diploma in Computer Science (PGDCS). <br>The Department makes every effort to update its curriculum in order to enhance competence, employability and higher education opportunities.</p>
+	<div class="icons">
+		<a href="https://m.facebook.com/Stella-Maris-College-335535367637180" target="blank"><i class="fa fa-facebook"></i></a>
+		<a href="https://twitter.com/SMC_Chennai"  target="blank"><i class="fa fa-twitter"></i></a>
+		<a href="https://instagram.com/stellamariscollegeofficial?igshid=1sf4uq6phgqo4"  target="blank "><i class="fa fa-instagram"></i></a>
+		<a href="https://www.youtube.com/channel/UC19QwhKgd695LjiriGvnRfw"  target="blank"><i class="fa fa-youtube"></i></a>
+	</div>
+
+</section>
+
+
+
+
+
+
+
+<!--javascript for toggle menu-->
+<script>
+	var navLinks = document.getElementById("navLinks");
+	function showMenu(){
+		navLinks.style.right = "0";
+	}
+	function hideMenu(){
+		navLinks.style.right = "-200px";
+	}
+</script>
+
+
+
+</body>
+</html>

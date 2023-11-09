@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url('smc.jpg'); /* Add your background image URL */
+            background-size: cover; /* Adjust the background image size */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            opacity: 0.9; /* Add the desired opacity value */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 350px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8); /* Add a background color with opacity */
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 4px rgba(0, 123, 255, 0.6);
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+        <nav>
+        
+            <a href="index.html"><img src="logo.png"></a>
+            <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="course.html">COURSE</a></li>
+                    <li><a href="stlogin.html">LOGIN</a></li>
+                    <li><a href="gallery.html">GALLERY</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        
+        
+   
+
+    <div class="container">
+        <h2>Login Page</h2>
+
+        <form id="loginForm" onsubmit="event.preventDefault(); login()">
+            <label for="userType">Select User Type:</label>
+            <select id="userType" name="userType" onchange="showLoginFields()">
+                <option value="staff">Staff</option>
+                <option value="student">Student</option>
+            </select>
+
+            <div id="loginFields">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+                <span class="error" id="usernameError"></span>
+
+                <label for="password">Password (Date of Birth):</label>
+                <input type="password" id="password" name="password" placeholder="YYYY-MM-DD">
+                <span class="error" id="passwordError"></span>
+
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function showLoginFields() {
+            var userType = document.getElementById('userType').value;
+            var loginFields = document.getElementById('loginFields');
+
+            if (userType === 'staff' || userType === 'student') {
+                loginFields.style.display = 'block';
+            } else {
+                loginFields.style.display = 'none';
+            }
+        }
+
+        function login() {
+            var userType = document.getElementById('userType').value;
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var usernameError = document.getElementById('usernameError');
+            var passwordError = document.getElementById('passwordError');
+            var isValid = true;
+
+                // Username Validation
+            if (username.trim() === '') {
+                usernameError.textContent = 'Username is required';
+                isValid = false;
+            } else if (!/^[a-zA-Z0-9]{4,}$/.test(username)) {
+                usernameError.textContent = 'Username must be at least 4 characters and alphanumeric';
+                isValid = false;
+            } else {
+                usernameError.textContent = '';
+            }
+
+            // Password Validation
+            if (password.trim() === '') {
+                passwordError.textContent = 'Password is required';
+                isValid = false;
+            } else if (!/^\d{4}-\d{2}-\d{2}$/.test(password)) {
+                passwordError.textContent = 'Invalid date format. Use YYYY-MM-DD';
+                isValid = false;
+            } else {
+                passwordError.textContent = '';
+            }
+
+            if (isValid) {
+                // Display an alert message with the username
+                alert("Welcome, " + username + "!");
+
+                // You can add code here to perform the login.
+                // For example, redirecting to the appropriate portal.
+                if (userType === 'staff') {
+                    window.location.href = 'staff.html'; // staff portal
+                } else if (userType === 'student') {
+                    window.location.href = 'stu.html'; // student portal
+                }
+            }
+        }
+        // Function to validate the username format
+        function isValidUsername(username) {
+            // Example: Valid username format "abc123"
+            // Modify the regular expression to match your specific criteria.
+            var usernameRegex = /^[a-zA-Z0-9]{3,10}$/; // 3 to 10 characters, alphanumeric
+
+            return usernameRegex.test(username);
+        }
+
+        // Initially, hide the login fields
+        showLoginFields();
+    </script>
+</head>
+
+</body>
+</html>

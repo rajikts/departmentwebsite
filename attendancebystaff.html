@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url('smc.jpg'); /* Add your background image URL */
+            background-size: cover; /* Adjust the background image size */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            opacity: 0.9; /* Add the desired opacity value */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 350px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8); /* Add a background color with opacity */
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0 0 20px;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        #attendanceList {
+            margin-top: 20px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 5px;
+        }
+
+        
+
+
+        nav {
+            background-color: #333;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 15px;
+            display: block;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        nav .submenu ul {
+            display: none;
+            background-color: #333;
+        }
+
+        nav .submenu:hover ul {
+            display: block;
+        }
+
+        nav .submenu ul li {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav .submenu ul li a {
+            padding: 10px 15px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end; /* Align items to the right */
+        }
+        
+        nav li {
+            margin-right: 10px; /* Add some spacing between list items */
+        }
+        
+        #logout {
+            margin-left: auto; /* Push the "Logout" link to the right */
+        }
+        
+        
+    </style>
+</head>
+<body>
+    
+
+    <nav>
+        <ul>
+            <li><a href="staff.html">Home</a></li>
+            <li class="submenu">
+                <a href="#">Courses</a>
+                <ul>
+                    <li><a href="coursestaff.html" >Course Management</a></li>
+                    <li><a href="time table.html" >Time Table</a></li>
+                </ul>
+            </li>
+            <li><a href="grade.html">Grading</a></li>
+            <li><a href="attendancebystaff.html">Attendance</a></li>
+            <li><a href="leave.html">Leave Request</a></li>
+            <li id="logout"><a href="index.html">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1>Student Attendance Updation</h1>
+        <form id="attendanceForm">
+            <label for="registerNumber">Register Number (e.g., 23/pcsa/110):</label>
+            <input type="text" id="registerNumber" required>
+            <span class="error" id="registerNumberError"></span>
+
+            <label for="period">Period Number:</label>
+            <select id="period" required>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+
+            <label>Attendance:</label>
+            <input type="radio" name="attendance" value="present" required> Present
+            <input type="radio" name="attendance" value="absent" required> Absent
+
+            <input type="submit" value="Submit">
+        </form>
+        <div id="attendanceList">
+            <h2>Absent Students:</h2>
+            <ul id="absentStudents"></ul>
+        </div>
+    </div>
+
+    <script>
+        const attendanceForm = document.getElementById('attendanceForm');
+        const absentStudentsList = document.getElementById('absentStudents');
+        const registerNumberInput = document.getElementById('registerNumber');
+        const registerNumberError = document.getElementById('registerNumberError');
+
+        attendanceForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Regular expression to validate the register number format
+            const registerNumberPattern = /^\d{2}\/[a-zA-Z]+\/\d{3}$/;
+            const registerNumber = registerNumberInput.value;
+            const period = document.getElementById('period').value;
+            const attendance = document.querySelector('input[name="attendance"]:checked').value;
+
+            if (!registerNumber.match(registerNumberPattern)) {
+                registerNumberError.textContent = 'Invalid register number format (e.g., 23/pcsa/110)';
+                return;
+            } else {
+                registerNumberError.textContent = '';
+            }
+
+            if (attendance === 'absent') {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${registerNumber} (Period ${period})`;
+                absentStudentsList.appendChild(listItem);
+            }
+
+            attendanceForm.reset();
+        });
+    </script>
+</body>
+</html>

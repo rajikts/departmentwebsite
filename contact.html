@@ -1,0 +1,238 @@
+<html>
+<head> 
+	<meta name="viewport" content="with=device-width, initial-scale=1.0">
+	<title>Computer Science Department - SMC </title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+
+<section class="sub-header">
+	<nav>
+	
+		<a href="index.html"><img src="logo.png"></a>
+		<div class="nav-links" id="navLinks">
+		<i class="fa fa-times" onclick="hideMenu()"></i>
+			<ul>
+				<li><a href="index.html">HOME</a></li>
+				<li><a href="about.html">ABOUT</a></li>
+				<li><a href="course.html">COURSE</a></li>
+				<li><a href="stlogin.html">LOGIN</a></li>
+				<li><a href="gallery.html">GALLERY</a></li>
+				<li><a href="blog.html">BLOG</a></li>
+				<li><a href="contact.html">CONTACT</a></li>
+			</ul>
+		</div>
+		<i class="fa fa-bars" onclick="showMenu()"></i>
+	</nav>
+	<h1>Contact Us</h1>
+	
+</section>
+
+
+<!-- contact us content -->
+
+<section class="location">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.832358383275!2d80.25078097322974!3d13.04634058727593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52664811920603%3A0xf9378292955703ee!2sStella%20Maris%20College!5e0!3m2!1sen!2sin!4v1694620832355!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+</section>
+
+<section class="contact-us">
+	<div class="row">
+		<div class="contact-col">
+			<i class="fa fa-home"></i>
+			<span>
+				<h5>Stella Maris College</h5>
+				<p>17, Cathedral Road,Chennai - 600 086, TamilNadu India. </p>
+			</span>
+		</div>
+		<div class="contact-col">
+			<i class="fa fa-phone"></i>
+			<span>
+				<h5>04428111987</h5>
+				<p>Monday to Saturday, 10AM to 4PM </p>
+			</span>
+		</div>
+		<div class="contact-col">
+			<i class="fa fa-envelope-o"></i>
+			<span>
+				<h5>cs@stellamariscollege.edu.in</h5>
+				<p>Email us your query </p>
+			</span>
+		</div>
+	</div>	
+
+	<!-- -->
+	<div class="container1">
+        <form id="form" class="form">
+            <h2>Send Message</h2>
+            <div class="form-control">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter Username" required>
+                <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter email" required>
+                <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="Enter subject" required>
+                <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label for="message">Message</label>
+                <textarea rows="8" id="message" placeholder="Type Your Message" required></textarea>
+                <small>Error Message</small>
+            </div>
+            <button>Send</button>
+        </form>
+    </div>
+
+
+<!-- -->
+		
+	
+
+</section>
+
+
+
+
+
+
+<!-- -->
+<script>
+	const form = document.getElementById('form');
+	const username = document.getElementById('username');
+	const email = document.getElementById('email');
+	const subject = document.getElementById('subject');
+	const message = document.getElementById('message');
+	
+	//Show input error messages
+	function showError(input, message) {
+		const formControl = input.parentElement;
+		formControl.className = 'form-control error';
+		const small = formControl.querySelector('small');
+		small.innerText = message;
+	}
+	
+	//show success colour
+	function showSucces(input) {
+		const formControl = input.parentElement;
+		formControl.className = 'form-control success';
+	}
+	
+	//check email is valid
+	function checkEmail(input) {
+		const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		if(re.test(input.value.trim())) {
+			showSucces(input)
+		}else {
+			showError(input,'Email is not invalid');
+		}
+	}
+	
+	
+	//checkRequired fields
+	function checkRequired(inputArr) {
+		inputArr.forEach(function(input){
+			if(input.value.trim() === ''){
+				showError(input,`${getFieldName(input)} is required`)
+			}else {
+				showSucces(input);
+			}
+		});
+	}
+	
+	
+	//check input Length
+	function checkLength(input, min ,max) {
+		if(input.value.length < min) {
+			showError(input, `${getFieldName(input)} must be at least ${min} characters`);
+		}else if(input.value.length > max) {
+			showError(input, `${getFieldName(input)} must be les than ${max} characters`);
+		}else {
+			showSucces(input);
+		}
+	}
+	
+	//get FieldName
+	function getFieldName(input) {
+		return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+	}
+	
+	// check passwords match
+	function checkPasswordMatch(input1, input2) {
+		if(input1.value !== input2.value) {
+			showError(input2, 'Passwords do not match');
+		}
+	}
+	
+	
+	//Event Listeners
+	form.addEventListener('submit',function(e) {
+		e.preventDefault();
+	
+		checkRequired([username, email, subject, message]);
+		checkLength(username,3,15);
+		checkLength(subject,6,25);
+		checkEmail(email);
+		checkLength(message,6,250);
+		
+	});
+
+
+</script>	
+
+
+
+
+
+<!-- -->
+
+
+<!-- Footer-->
+<section class="footer">
+	<h3>About Us </h3>
+	<p>The undergraduate programme in Computer Applications (B.C.A.) was started in 1998 and the postgraduate programm - M.Sc. Information Technology in 2001.<br> The Department also offers a Postgraduate Diploma in Computer Science (PGDCS). <br>The Department makes every effort to update its curriculum in order to enhance competence, employability and higher education opportunities.</p>
+	<div class="icons">
+		<a href="https://m.facebook.com/Stella-Maris-College-335535367637180" target="blank"><i class="fa fa-facebook"></i></a>
+		<a href="https://twitter.com/SMC_Chennai"  target="blank"><i class="fa fa-twitter"></i></a>
+		<a href="https://instagram.com/stellamariscollegeofficial?igshid=1sf4uq6phgqo4"  target="blank "><i class="fa fa-instagram"></i></a>
+		<a href="https://www.youtube.com/channel/UC19QwhKgd695LjiriGvnRfw"  target="blank"><i class="fa fa-youtube"></i></a>
+	</div>
+
+</section>
+
+
+
+
+
+
+
+<!--javascript for toggle menu-->
+<script>
+	var navLinks = document.getElementById("navLinks");
+	function showMenu(){
+		navLinks.style.right = "0";
+	}
+	function hideMenu(){
+		navLinks.style.right = "-200px";
+	}
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
